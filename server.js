@@ -28,7 +28,15 @@ app.get("/api/hello", function (req, res) {
 
 app.get("/api/whoami", function(req,res){
   
-  res.json({})
+  let ipAddress = req.headers["x-forwarded-for"];
+  
+  let regExp = /[0-9.]*/
+  
+  
+  res.json({
+    "ipaddress": (regExp.exec(ipAddress)[0]),
+    "language": req.headers["Accept-Language"]
+  })
     
 })
 
