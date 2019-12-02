@@ -17,6 +17,9 @@ app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (req, res) {
+  
+  console.log()
+              
   res.sendFile(__dirname + '/views/index.html');
 });
 
@@ -32,10 +35,12 @@ app.get("/api/whoami", function(req,res){
   
   let regExp = /[0-9.]*/
   
+  //console.log(req.headers.accept)
   
   res.json({
     "ipaddress": (regExp.exec(ipAddress)[0]),
-    "language": req.headers["Accept-Language"]
+    "language": req.headers["accept-language"],
+    "software": req.headers["user-agent"]
   })
     
 })
