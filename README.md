@@ -1,3 +1,5 @@
+Example: https://amenable-blob.glitch.me/api/whoami
+
 # API Project: Request Header Parser Microservice for freeCodeCamp
 
 ### User stories:
